@@ -11,13 +11,13 @@ If a user wants a pdf emailed to her from the browser. She starts the process. I
 Therefore I built this library which forks php processes onto the command line. I have use this in my work as well.
 
 
-// ~GETTING STARTED ~//
+// ~GETTING STARTED ~//  
 
-There are two files exec_bg.php and bg_worker.php.
+There are two files exec_bg.php and bg_worker.php.  
 
-To implement this library it is very simple. All you have to do is pass the script path into the exec_bg function declared in the file exec_bg.php .
+To implement this library it is very simple. All you have to do is pass the script path into the exec_bg function declared in the file exec_bg.php .  
 
-  /* SAMPLE CODE :
+/* SAMPLE CODE :
     <?php
       /*Temporary file that sets the php processes to command line*/
       $docRoot = "/home/www/ssl";	
