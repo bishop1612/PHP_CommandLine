@@ -25,9 +25,48 @@ To implement this library it is very simple. All you have to do is pass the scri
       $script = $docRoot . "/oiscweb/projects/products/seed/exportquery.php";
       exec_bg($script);
     ?>
-*/
+  */
 
 Make sure to inculde the full script path
 
 
 // ~HOW IT WORKS~ //
+The exec_bg.php on receiving the script path, stores all the variables, sessions defined in the current enviroment.
+
+	/* SAMPLE CODE :
+    <?php
+      // Save current environment
+	$env = array();
+	$env["SAVE"] = $saveEnv;
+	
+	if($saveEnv){
+		$env["_GET"]		= $_GET;
+		$env["_REQUEST"]	= $_REQUEST;
+		$env["_POST"]		= $_POST;
+		$env["_SERVER"]		= $_SERVER;
+		$env["_COOKIE"]		= $_COOKIE;
+	}
+	$env["_SESSION"]	= class_exists("oiscSession", false) ? @$_SESSION : false;
+	
+	// Save book keeping data
+	$env["exec_bg"] = array(
+		"script"	=> $scriptPath,
+		"args"		=> $args
+	);
+    ?>
+  */
+  
+  Now exec_bg creates a job_id and writes the variables and arrays of the script onto a text file. Each text file is given an 
+  unique job_id. This is because if processes are sent at the same time they will not interfere with each other.
+  
+  This unique job_id passed along background_worker.php which locates the text file based on it's id, deserializes it and restore 
+  the session back to it's original state and now runs the script in the command line.
+  
+  // ~SOME POINTERS ~//
+  
+ 1. Include the full script path for exec_bg.
+ 2. Include your own filepath for the textfile.
+ 4. The filepaths of exec_bg and background_worker will depend upon where the developers place this files.
+  
+  
+  
