@@ -1,6 +1,4 @@
 <?php
-require_once "/home/www/ssl/oiscweb/lib/oiscSession.php";
-
 function exec_bg ($scriptPath, $args = false, $saveEnv = true){
 	// Make sure path is full path
 	$scriptPath = realpath($scriptPath);
@@ -16,7 +14,7 @@ function exec_bg ($scriptPath, $args = false, $saveEnv = true){
 		$env["_SERVER"]		= $_SERVER;
 		$env["_COOKIE"]		= $_COOKIE;
 	}
-	$env["_SESSION"]	= class_exists("oiscSession", false) ? @$_SESSION : false;
+	
 	
 	// Save book keeping data
 	$env["exec_bg"] = array(

@@ -56,15 +56,5 @@ if( php_sapi_name() == 'cli' ){
 	
 	echo "\n\n\n############### exec_bg() bg_worker.php (SCRIPT DONE) ############## \n";
 	
-	if(class_exists("oiscSession", false)){
-		// Log console log
-		echo "\n\n\n########## exec_bg() bg_worker.php (SESSION CONSOLE LOG) ########## \n";
-		print_r(oiscSession::consoleGet());
-	}
-
-} else {
-	$OISC_EXEC_BG = false;
-	$OISC_EXEC_BG_SESSION = false;
-}
 
 ?>
