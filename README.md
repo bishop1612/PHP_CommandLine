@@ -3,7 +3,7 @@
 A PHP library that forks PHP processes onto the command line.
 
 // ~PURPOSE~ //  
-Often php processes in the browser take a long time to execute. If a user sents a request to the server and decides to close the browser before receiving the request back from the server. The process will not be completed. Therefore it's important to come up with a certain that forks php processes in the background irrespective of user's actions. 
+Often php processes in the browser take a long time to execute. If a user sents a request to the server and decides to close the browser before receiving the request back from the server. The process will not be completed. Therefore it's important to come up with a certain script that forks php processes in the background irrespective of user's actions. 
 
 For example :
 If a user wants a pdf emailed to her from the browser. She starts the process. If she quits the browser before the process is complete in the browser window the process will be terminated. 
